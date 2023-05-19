@@ -1,0 +1,43 @@
+/**
+div{
+    border: 1px solid black;
+}
+.container, .linea-tiempo{
+    border: 1px solid green;
+}
+**/
+
+.linea-tiempo{
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+}
+.rango-tiempo{
+    padding: 3em 2em 2em;
+    position: relative;
+    color: black;
+    border-left: 2px solid grey;
+}
+.rango-tiempo::before{
+    content: attr(range);
+    position: absolute;
+    left: -60px;
+    font-weight: bold;
+    top: 1em;
+    display: block;
+    font-weight: 700;
+    font-size: 0.785rem;
+    color: black;
+}
+.rango-tiempo::after{
+    width: 10px;
+    height: 10px;
+    display: block;
+    top: 1em;
+    position: absolute;
+    left: -7px;
+    border-radius: 10px;
+    content: "";
+    border: 2px solid yellow;
+    background: yellow;
+}
