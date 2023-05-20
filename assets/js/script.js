@@ -5,7 +5,6 @@ const consultarAPI = (url) =>{
         fetch(url)
             .then((personaje) => personaje.json())
             .then((dataPJ) => resolve(dataPJ))
-            /*.catch((error) => reject(error))*/
             .catch((error) => console.warn(error))
     })
 }
@@ -82,7 +81,7 @@ function dibujarCard(grupo,personaje){
 var gen1 = genLecturaApi(1,1,5)
 var gen2 = genLecturaApi(2,6,10)
 var gen3 = genLecturaApi(3,11,15)
-var gen4 = genLecturaApi(4,16,20)
+var gen4 = genLecturaApi(4,16,83)
 
 $(document).ready(function(){
     $('#idSpanGroup1').mouseenter(function(){
