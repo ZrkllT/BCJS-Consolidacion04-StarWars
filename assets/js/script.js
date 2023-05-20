@@ -1,4 +1,5 @@
 var url = 'https://swapi.dev/api/people/'
+var listGen = []
 
 const consultarAPI = (url) =>{
     return new Promise((resolve,reject) =>{
@@ -8,11 +9,10 @@ const consultarAPI = (url) =>{
     })
 }
 
-function* genLecturaApi(grupo,ini,ter,i){
-    if(i <= ter){
-        yield consultarAPI(`${url}${i}?format=json`)
-                .then(resp => {dibujarCard(grupo,resp)})
-
+function* genLecturaApi(grupo,ini,ter){
+    for(var i = ini; i <= ter; i++){
+    yield consultarAPI(`${url}${i}?format=json`)
+            .then(resp => {dibujarCard(grupo,resp)})
     }
 }
 
@@ -20,9 +20,9 @@ function obtenerGrupoRango(objSpan){
     var idGrupo = $(objSpan).data('group')
     var [gInicio, gTermino] = $(objSpan).data('range').split(',').map(Number)
     
-    for(var i = gInicio; i <= gTermino; i++){
-        genLecturaApi(idGrupo,gInicio,gTermino,i).next()
-    }
+    if(idGrupo == 1){ gen1.next() }
+    if(idGrupo == 2){ gen2.next() }
+    if(idGrupo == 3){ gen3.next() }
     
 }
 
@@ -54,6 +54,11 @@ function dibujarCard(grupo,personaje){
         </div>
         `)
 }
+
+/* generedaores */
+var gen1 = genLecturaApi(1,1,5)
+var gen2 = genLecturaApi(2,6,10)
+var gen3 = genLecturaApi(3,11,15)
 
 $(document).ready(function(){
     $('#idSpanGroup1').mouseenter(function(){

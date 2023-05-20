@@ -4,91 +4,28 @@ div{
 }
 **/
 
-
-
-
-/* The actual timeline (the vertical ruler) */
-.main-timeline-5 {
-  position: relative;
-  max-width: 50%;
-  margin: 0 auto;
+.range{
+  position:relative;
+  display:flex;
+  align-items:center;
+  width:2rem;
 }
 
-/* The actual timeline (the vertical ruler) */
-.main-timeline-5::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  background-color: #fff;
-  top: 0;
-  bottom: 0;
-  left: auto;
-  margin-left: -3px;
-}
-
-/* Container around content */
-.timeline-5 {
-  position: relative;
-  background-color: inherit;
-  width: 100%;
-}
-
-/* The circles on the timeline */
-.timeline-5::after {
-  content: "";
-  position: absolute;
-  width: 17px;
-  height: 17px;
-  right: 1px;
-  background-color: #fff;
-  top: 18px;
+.circle{
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  min-height: 2rem;
   border-radius: 50%;
-  z-index: 1;
+  background-color: yellow;
 }
 
-/* Place the container to the right */
-.right-5 {
-  padding: 0px 0px 20px 40px;
-  left: auto;
+.line{
+  position:absolute;
+  width: .25rem;
+  min-width: .25rem;
+  background-color: yellow;
+  left:calc(50% - calc(.25rem / 2 ));
+  height: 100%;
 }
 
-/* Add arrows to the right container (pointing left) */
-.right-5::before {
-  content: " ";
-  position: absolute;
-  top: 18px;
-  z-index: 1;
-  left: 30px;
-  border: medium solid #fff;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #fff transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right-5::after {
-  left: -10px;
-}
-
-@media (max-width: 991px) {
-  .main-timeline-5 {
-    max-width: 100%;
-  }
-}
-.gradient-custom-5 {
-  /* fallback for old browsers */
-  background: #ebbba7;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(
-    to right,
-    rgba(235, 187, 167, 1),
-    rgba(207, 199, 248, 1)
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(
-    to right,
-    rgba(235, 187, 167, 1),
-    rgba(207, 199, 248, 1)
-  );
-}
