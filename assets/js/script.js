@@ -1,14 +1,4 @@
-/* generador *
-function* generador(){
-    yield console.log(1)
-}
-* generador */
-//https://swapi.dev/api/people/$%7Bpeople%7D?format=json
-//83 personajes
-//range.splig(',').map(Number)
-
 var url = 'https://swapi.dev/api/people/'
-//${asdasd}?format=json'
 
 const consultarAPI = (url) =>{
     return new Promise((resolve,reject) =>{
@@ -38,12 +28,18 @@ function obtenerGrupoRango(objSpan){
 
 function dibujarCard(grupo,personaje){
     console.log(personaje)
+    var color
+    if(grupo === 1){ color = 'red' }
+    else if(grupo === 2){ color = 'green' }
+    else if(grupo === 3){ color = 'blue' }
     var divGrupo = '#idGroup'+grupo
+
     var peso = personaje.mass === 'unknown' ? 'N/A' : personaje.mass
     $(divGrupo).append(`
-        <div id="idCardGroup${grupo}" class="card mb-3" style="max-width: 22rem;">
+        <div id="idCardResultado${grupo}" class="card mb-2 ms-1" style="max-width: 22rem;">
           <div class="row g-0">
             <div class="col-md-2">
+              <img src="./assets/img/${color}-circle.png" class="img-fluid rounded-start">
             </div>
             <div class="col-md-10">
               <div class="card-body">
